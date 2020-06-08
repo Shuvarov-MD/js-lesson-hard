@@ -1,38 +1,63 @@
 'use strict';
 
+//Задание 1
+let lang = prompt('Введите "ru", чтобы увидеть дни недели на русском языке, или "en", чтобы увидеть дни недели на английском языке');
 
-let num = 266219;
-
-//Вариант с массивом
-let result = 1,
- numArr = String(num).split('');
-
-for(let i = 0; i < numArr.length; i++) {
-  result *= numArr[i];
+//Вариант через if-else
+if (lang === 'ru') {
+  console.log('Понедельник');
+  console.log('Вторник');
+  console.log('Среда');
+  console.log('Четверг');
+  console.log('Пятница');
+  console.log('Суббота');
+  console.log('Воскресенье');
+} else if (lang === 'en') {
+  console.log('Monday');
+  console.log('Tuesday');
+  console.log('Wednesday');
+  console.log('Thursday');
+  console.log('Friday');
+  console.log('Saturday');
+  console.log('Sunday');
 }
 
-console.log(result);
+//Вариант через switch-case
+switch (lang){
+  case 'ru':
+    console.log('Понедельник');
+    console.log('Вторник');
+    console.log('Среда');
+    console.log('Четверг');
+    console.log('Пятница');
+    console.log('Суббота');
+    console.log('Воскресенье');
+    break;
+  case 'en':
+    console.log('Monday');
+    console.log('Tuesday');
+    console.log('Wednesday');
+    console.log('Thursday');
+    console.log('Friday');
+    console.log('Saturday');
+    console.log('Sunday');
+    break;
+}
 
-result **= 3;
+//Вариант с массивом
+let arrDays = [['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']];
 
-console.log(result);
+for (let i = 0; lang === 'ru' && i < arrDays[0].length; i++) {
+  console.log(arrDays[0][i]);
+}
 
-
-//Вариант без массива
-let remain;
-result = 1;
-
-  while (num) {
-    remain = num % 10;
-    num = (num - remain) / 10;
-    result  *= remain;
-  }
-
-console.log(result);
-
-result **= 3;
-
-console.log(result);
+for (let i = 0; lang === 'en' && i < arrDays[1].length; i++) {
+  console.log(arrDays[1][i]);
+}
 
 
-console.log(+(String(result).slice(0, 2)));
+
+//Задание 2
+let namePerson = prompt('Введите имя: ', '');
+
+let result = (namePerson === 'Артем') ? console.log('директор') : (namePerson === 'Максим') ? console.log('преподаватель') : console.log('студент');
