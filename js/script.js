@@ -1,63 +1,23 @@
 'use strict';
 
-//Задание 1
-let lang = prompt('Введите "ru", чтобы увидеть дни недели на русском языке, или "en", чтобы увидеть дни недели на английском языке');
-
-//Вариант через if-else
-if (lang === 'ru') {
-  console.log('Понедельник');
-  console.log('Вторник');
-  console.log('Среда');
-  console.log('Четверг');
-  console.log('Пятница');
-  console.log('Суббота');
-  console.log('Воскресенье');
-} else if (lang === 'en') {
-  console.log('Monday');
-  console.log('Tuesday');
-  console.log('Wednesday');
-  console.log('Thursday');
-  console.log('Friday');
-  console.log('Saturday');
-  console.log('Sunday');
+function getString(data) {
+  if (typeof(data) !== 'string') {
+    return (data + ' - не строка. Введите строку.');
+  } else {
+      if(data.length > 30) {
+        return data.trim().slice(0, 30) + '...';
+      } else {
+        return data.trim();
+      }
+  }
 }
 
-//Вариант через switch-case
-switch (lang){
-  case 'ru':
-    console.log('Понедельник');
-    console.log('Вторник');
-    console.log('Среда');
-    console.log('Четверг');
-    console.log('Пятница');
-    console.log('Суббота');
-    console.log('Воскресенье');
-    break;
-  case 'en':
-    console.log('Monday');
-    console.log('Tuesday');
-    console.log('Wednesday');
-    console.log('Thursday');
-    console.log('Friday');
-    console.log('Saturday');
-    console.log('Sunday');
-    break;
-}
+console.log(getString(123));
+console.log(getString(true));
+console.log(getString(null));
+console.log(getString(undefined));
 
-//Вариант с массивом
-let arrDays = [['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']];
-
-for (let i = 0; lang === 'ru' && i < arrDays[0].length; i++) {
-  console.log(arrDays[0][i]);
-}
-
-for (let i = 0; lang === 'en' && i < arrDays[1].length; i++) {
-  console.log(arrDays[1][i]);
-}
-
-
-
-//Задание 2
-let namePerson = prompt('Введите имя: ', '');
-
-let result = (namePerson === 'Артем') ? console.log('директор') : (namePerson === 'Максим') ? console.log('преподаватель') : console.log('студент');
+console.log(getString('   Далеко-далеко  '));
+console.log(getString('Далеко-далеко'));
+console.log(getString('Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты.'));
+console.log(getString('  Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты.  '));
