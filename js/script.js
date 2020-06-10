@@ -1,29 +1,36 @@
 'use strict';
 
-function getString(data) {
-  if (typeof(data) !== 'string') {
-    return (data + ' - не строка. Введите строку.');
-  } else {
-    if (data !== '' && data !== ' '){
-      if (data.length > 30) {
-        return data.trim().slice(0, 30) + '...';
-      } else {
-        return data.trim();
-      }
-    } else {
-      return 'Введите не пустую строку';
-    }
+
+//Задание 1
+let isNumber = function(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
+let arr = [];
+
+for (let i = 0; i < 7; i++) {
+  do {
+    arr[i] = prompt('Введите многозначное число:', '').trim();
+  } while (!isNumber(arr[i]) || arr[i].length < 2);
+}
+
+console.log(arr);
+
+for (let i = 0; i < 7; i++) {
+  if (arr[i][0] === '2') {
+    console.log('Числа, начинающиеся с цифры 2: ' + arr[i]);
+  } else if (arr[i][0] === '4') {
+    console.log('Числа, начинающиеся с цифры 4: ' + arr[i]);
   }
 }
 
-console.log(getString(123));
-console.log(getString(true));
-console.log(getString(null));
-console.log(getString(undefined));
 
-console.log(getString(' '));
-console.log(getString(''));
-console.log(getString('   Далеко-далеко  '));
-console.log(getString('Далеко-далеко'));
-console.log(getString('Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты.'));
-console.log(getString('  Далеко-далеко, за словесными горами в стране гласных и согласных живут рыбные тексты.  '));
+//Задание 2
+outer: for (let i = 1; i <= 100; i++) {
+  for (let j = 2; j < i; j++) {
+    if (i % j === 0) {
+      continue outer;
+    }
+  }
+  console.log('Делители этого числа: ' + 1 + ' и ' + i);
+}
