@@ -5,7 +5,11 @@ let today = new Date();
 
 week.forEach(function(item, index) {
   if (index === today.getDay()) {
-    document.write('<strong>' + item + '</strong><br>');
+    if(index === 0 || index === 6) {
+      document.write('<strong><em>' + item + '</em></strong><br>');
+    } else {
+      document.write('<strong>' + item + '</strong><br>');
+    }
   } else if (index === 0 || index === 6) {
     document.write('<em>' + item + '</em><br>');
   } else {
