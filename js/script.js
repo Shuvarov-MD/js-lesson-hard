@@ -15,9 +15,9 @@ function showTimeFull() {
       minutesFull: date.getMinutes(),
       secondsFull: date.getSeconds()
     },
-    hour = (timeFull.hoursFull % 10 === 2 || timeFull.hoursFull % 10 === 3 || timeFull.hoursFull % 10 === 4) ? ' часа ' : (timeFull.hoursFull % 10 === 1) ? ' час ' : ' часов ',
-    minute = (timeFull.minutesFull % 10 === 2 || timeFull.minutesFull % 10 === 3 || timeFull.minutesFull % 10 === 4) ? ' минуты ' : (timeFull.minutesFull % 10 === 1) ? ' минута ' : ' минут ',
-    second = (timeFull.secondsFull % 10 === 2 || timeFull.secondsFull % 10 === 3 || timeFull.secondsFull % 10 === 4) ? ' секунды' : (timeFull.secondsFull % 10 === 1) ? ' секунда' : ' секунд';
+    hour = (timeFull.hoursFull % 10 === 2 || timeFull.hoursFull % 10 === 3 || timeFull.hoursFull % 10 === 4) ? ' часа ' : (timeFull.hoursFull % 10 === 1 && timeFull.hoursFull !== 11) ? ' час ' : ' часов ',
+    minute = (timeFull.minutesFull % 10 === 2 || timeFull.minutesFull % 10 === 3 || timeFull.minutesFull % 10 === 4) ? ' минуты ' : (timeFull.minutesFull % 10 === 1 && timeFull.minutesFull !== 11) ? ' минута ' : ' минут ',
+    second = (timeFull.secondsFull % 10 === 2 || timeFull.secondsFull % 10 === 3 || timeFull.secondsFull % 10 === 4) ? ' секунды' : (timeFull.secondsFull % 10 === 1 && timeFull.secondsFull !== 11) ? ' секунда' : ' секунд';
 
    fullDate.innerHTML = 'Сегодня ' + timeFull.dayFull +', '+ timeFull.dateFull + ' ' + timeFull.monthFull + ' ' + timeFull.yearFull + ' года, ' + timeFull.hoursFull + hour + timeFull.minutesFull + minute + timeFull.secondsFull + second;
 }
